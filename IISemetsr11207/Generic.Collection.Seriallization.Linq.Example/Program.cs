@@ -1,6 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using Generic.Collection.Seriallization.Linq.Example;
+﻿using Generic.Collection.Seriallization.Linq.Example.Generic;
 
 Console.WriteLine("Hello, World!");
 

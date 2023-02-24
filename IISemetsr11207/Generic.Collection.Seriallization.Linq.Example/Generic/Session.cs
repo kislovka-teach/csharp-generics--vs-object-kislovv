@@ -1,4 +1,4 @@
-﻿namespace Generic.Collection.Seriallization.Linq.Example;
+﻿namespace Generic.Collection.Seriallization.Linq.Example.Generic;
 
 public class Session<TSessionData> where TSessionData : struct
 {
@@ -18,8 +18,8 @@ public class Session<TSessionData> where TSessionData : struct
     public Account Last { get; }
     public Guid Id { get; }
     public List<Transaction<TSessionData>> Transactions { get; }
-    
-    public void SaveTransaction(Transaction<TSessionData> transaction) 
+
+    public void SaveTransaction(Transaction<TSessionData> transaction)
     {
         if (transaction.From.SessionId != Id && transaction.To.SessionId != Id)
         {

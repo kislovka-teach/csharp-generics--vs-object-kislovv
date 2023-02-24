@@ -1,4 +1,4 @@
-﻿namespace Generic.Collection.Seriallization.Linq.Example;
+﻿namespace Generic.Collection.Seriallization.Linq.Example.Generic;
 
 public class Account
 {
