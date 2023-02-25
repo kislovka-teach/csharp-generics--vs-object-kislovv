@@ -2,13 +2,19 @@
 
 namespace TemperatureAPI
 {
-    public class TemperatureNotificator
+    public class TemperatureNotificator : IWeatherObservable
     {
         private double _temp;
         private int _pressure;
         private int _humidityPercentage;
         private string _city;
         private WeatherClient _client;
+        //Если есть event то можно не хранить, вся цепочка хранится в делегате
+        private List<IWeatherObserver> _observers = new();
+
+        public delegate void Update(double temperature, int humidity, int pressure);
+        //event сам по себе является свойством, поэтому его можно не оформлять как свойство, оно итак инкапсулированно
+        public event Update UpdateEvent;
         public TemperatureNotificator(string city)
         {
             _city= city;
@@ -19,17 +25,43 @@ namespace TemperatureAPI
             _humidityPercentage = weatherData.Main.HumidityPercentage;
         }
 
-        private void Update() 
+        public void Start() 
         {
             while(true)
             {
-                Task.Delay(10000);
+                Thread.Sleep(100);
+                var weatherData = _client.GetCurrentWeather(_city);
+                _temp = weatherData.Main.Temperature - 273; 
+                _pressure = weatherData.Main.AtmosphericPressure;
+                _humidityPercentage = weatherData.Main.HumidityPercentage;
+                NotifyObserveres();
             }
         }
 
         public (double temp, int humidity, int pressure) GetWeatherData()
         {
             return (Math.Round(_temp, 2), _humidityPercentage, _pressure);
+        }
+        
+        //Если есть event то можно пренебречь, т.к. += это и есть метод Add
+        public void AddObserver(IWeatherObserver observer)
+        {
+            _observers.Add(observer);
+        }
+
+        public void NotifyObserveres()
+        {
+            //Если не через event то необходимо у каждого IObserver вызывать метод Update() 
+            UpdateEvent?.Invoke(_temp,_humidityPercentage,_pressure);
+        }
+
+        //Если есть event то можно пренебречь, т.к. -= это и есть метод Remove
+        public void RemoveObserver(IWeatherObserver observer)
+        {
+            if (_observers.Contains(observer))
+            {
+                _observers.Remove(observer);
+            }
         }
     }
 }

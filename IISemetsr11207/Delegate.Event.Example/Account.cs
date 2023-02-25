@@ -1,37 +1,31 @@
-﻿
-using static Delegate.Event.Example.Account;
-
-namespace Delegate.Event.Example
+﻿namespace Delegate.Event.Example
 {
     public class Account
     {
-        public delegate void Notify(string message);
-        int _sum;
-        public event Notify NotifyEvent;
-        public Account(int sum)
+        public delegate void Notify(Account sender, AccountEventArgs args);
+        //Используем event т.к. иначе можно было бы управлять Notifier снаружи
+        public event Notify Notifier;
+        public Account(int sum, Notify notifier)
         {
-            _sum = sum;
-            Console.WriteLine($"Создан счет с суммой { _sum}");
+            CurrentSum = sum;
+            Notifier = notifier;
+            Notifier?.Invoke(this, new AccountEventArgs($"Создан счет с суммой {CurrentSum}"));
         }
 
-        public int CurrentSum
-        {
-            get { return _sum; }
-        }
+        public int CurrentSum { get; private set; }
 
         public void Put(int sum)
         {
-            NotifyEvent?.Invoke($"Добавлено {sum} к счету, остаток -{_sum}");
-            _sum += sum;
-            Console.WriteLine($"Добавлено { sum} к счету, остаток -{ _sum}");
+            CurrentSum += sum;
+            Notifier?.Invoke(this, new AccountEventArgs($"Добавлено {sum} к счету, остаток - {CurrentSum}"));
         }
 
         public void Withdraw(int sum)
         {
-            if (sum <= _sum)
+            if (sum <= CurrentSum)
             {
-                _sum -= sum;
-                Console.WriteLine($"Убрано со счета {sum}, остаток -{_sum}");
+                CurrentSum -= sum;
+                Notifier?.Invoke(this, new AccountEventArgs($"Убрано со счета {sum}, остаток - {CurrentSum}"));
             }
         }
     }
