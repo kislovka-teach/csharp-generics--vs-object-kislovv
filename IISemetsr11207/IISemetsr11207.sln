@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate.Event.Example", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureAPI", "TemperatureAPI\TemperatureAPI.csproj", "{242A8BAC-D082-429B-B024-E224F6992B1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Action.Function.Predicate.List.Dict.Example", "Action.Function.Predicate.List.Dict.Example\Action.Function.Predicate.List.Dict.Example.csproj", "{C6E27FAD-C800-4889-88A2-4E58E92DDADA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{242A8BAC-D082-429B-B024-E224F6992B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{242A8BAC-D082-429B-B024-E224F6992B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{242A8BAC-D082-429B-B024-E224F6992B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6E27FAD-C800-4889-88A2-4E58E92DDADA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E27FAD-C800-4889-88A2-4E58E92DDADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E27FAD-C800-4889-88A2-4E58E92DDADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E27FAD-C800-4889-88A2-4E58E92DDADA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

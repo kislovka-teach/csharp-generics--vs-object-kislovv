@@ -11,10 +11,9 @@ namespace TemperatureAPI
         private WeatherClient _client;
         //Если есть event то можно не хранить, вся цепочка хранится в делегате
         private List<IWeatherObserver> _observers = new();
-
-        public delegate void Update(double temperature, int humidity, int pressure);
+        
         //event сам по себе является свойством, поэтому его можно не оформлять как свойство, оно итак инкапсулированно
-        public event Update UpdateEvent;
+        public Action<double, int, int> UpdateEvent = (_, _, _) => { };
         public TemperatureNotificator(string city)
         {
             _city= city;
@@ -52,7 +51,7 @@ namespace TemperatureAPI
         public void NotifyObserveres()
         {
             //Если не через event то необходимо у каждого IObserver вызывать метод Update() 
-            UpdateEvent?.Invoke(_temp,_humidityPercentage,_pressure);
+            UpdateEvent(_temp,_humidityPercentage,_pressure);
         }
 
         //Если есть event то можно пренебречь, т.к. -= это и есть метод Remove
