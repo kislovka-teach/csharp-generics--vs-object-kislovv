@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChainResponsibility.Example
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iterator.Example", "Iterator.Example\Iterator.Example.csproj", "{BD8E634D-1B54-48AF-A250-36E219AC4288}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate.Event.Example", "Delegate.Event.Example\Delegate.Event.Example.csproj", "{7E51087F-63F6-4577-9878-B711A948B21E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delegate.Event.Example", "Delegate.Event.Example\Delegate.Event.Example.csproj", "{7E51087F-63F6-4577-9878-B711A948B21E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemperatureAPI", "TemperatureAPI\TemperatureAPI.csproj", "{242A8BAC-D082-429B-B024-E224F6992B1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemperatureAPI", "TemperatureAPI\TemperatureAPI.csproj", "{242A8BAC-D082-429B-B024-E224F6992B1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Action.Function.Predicate.List.Dict.Example", "Action.Function.Predicate.List.Dict.Example\Action.Function.Predicate.List.Dict.Example.csproj", "{C6E27FAD-C800-4889-88A2-4E58E92DDADA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Action.Function.Predicate.List.Dict.Example", "Action.Function.Predicate.List.Dict.Example\Action.Function.Predicate.List.Dict.Example.csproj", "{C6E27FAD-C800-4889-88A2-4E58E92DDADA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization.Decorator.Adapter.Example", "Serialization.Decorator.Adapter.Example\Serialization.Decorator.Adapter.Example.csproj", "{800EA5D1-1EA1-49B2-9037-28085A17956B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{C6E27FAD-C800-4889-88A2-4E58E92DDADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6E27FAD-C800-4889-88A2-4E58E92DDADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6E27FAD-C800-4889-88A2-4E58E92DDADA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{800EA5D1-1EA1-49B2-9037-28085A17956B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{800EA5D1-1EA1-49B2-9037-28085A17956B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{800EA5D1-1EA1-49B2-9037-28085A17956B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{800EA5D1-1EA1-49B2-9037-28085A17956B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
