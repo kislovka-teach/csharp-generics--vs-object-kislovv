@@ -2,6 +2,7 @@
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Xml.Serialization;
+using Serialization.Decorator.Adapter.Example.Decorator;
 
 var company = new Company
 {
@@ -29,4 +30,10 @@ using (var file = new FileStream("person.xml", FileMode.OpenOrCreate))
 {
     xmlSerializer.Serialize(file, person);
 }
+
+Coffe latte = new Latte();
+latte = new CoffeMilk(latte);
+latte = new CoffeSugar(latte);
+latte = new CoffeMilk(latte);
+Console.WriteLine(latte.GetCost());
 
