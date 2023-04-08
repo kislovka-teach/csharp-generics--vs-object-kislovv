@@ -1,4 +1,6 @@
-﻿namespace Action.Function.Predicate.List.Dict.Example;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace Action.Function.Predicate.List.Dict.Example;
 
 public class Metacritic
 {
@@ -35,5 +37,16 @@ public class Metacritic
         games.Sort((game1, game2) => game2.Score[typeOfScore].CompareTo(game1.Score[typeOfScore]));
         // games.Sort(new TypeOfScoreComparator(typeOfScore));
         return games.Take(10);
+    }
+    public Dictionary<Genre, decimal> GetSumScoreByGenre()
+    {
+        return _games
+            .GroupBy(x => x.Genre)
+            .ToDictionary(x => x.Key, y => y.ToList().Sum(z => z.Score.Values.Sum()));
+    }
+
+    public IEnumerable<Game> GetAllGamesWhenFirstAndLastCharEquals()
+    {
+        return _games.Where(x => x.Name[0] == x.Name[^1]);
     }
 }
