@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Action.Function.Predicate.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization.Decorator.Adapter.Example", "Serialization.Decorator.Adapter.Example\Serialization.Decorator.Adapter.Example.csproj", "{800EA5D1-1EA1-49B2-9037-28085A17956B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.Tasks.PLINQ.Parallel", "Threads.Tasks.PLINQ.Parallel\Threads.Tasks.PLINQ.Parallel.csproj", "{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{800EA5D1-1EA1-49B2-9037-28085A17956B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{800EA5D1-1EA1-49B2-9037-28085A17956B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{800EA5D1-1EA1-49B2-9037-28085A17956B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
