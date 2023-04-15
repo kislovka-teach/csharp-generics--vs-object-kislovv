@@ -1,4 +1,4 @@
-﻿using System.Threading.Channels;
+﻿/*using System.Threading.Channels;
 using Microsoft.VisualBasic;
 using Threads.Tasks.PLINQ.Parallel;
 
@@ -81,3 +81,75 @@ ThreadPoolExample.Solve(array, 7);
 //Console.WriteLine(string.Join(" ", array));
 while (array[^1] == end) ;
 Console.WriteLine($"{array[0]}, {array[1]}..{array[array.Length / 2]}..{array[^2]}, {array[^1]}");
+*/
+using System;
+using System.Threading;
+using Threads.Tasks.PLINQ.Parallel;
+
+
+public class Program
+{
+    public static Semaphore semaphore = new Semaphore(5, 5);
+    public static Random random = new Random();
+
+    /// <summary>
+    /// Зрители заходят в зал и смотрят представление.
+    /// </summary>
+    public static void Main(string[] args)
+    {
+        Thread threadTheatre = new Thread(new ThreadStart(TheaterShow));
+        threadTheatre.Start();
+        var numbers = Enumerable.Range(1, 300).ToList();
+        var numbersCopy = new List<int>(numbers);
+
+        for (var i = 0; i < numbers.Count; i++)
+        {
+            var pickIndex = random.Next(numbersCopy.Count);
+            var randNumber = numbersCopy[pickIndex];
+
+            Thread threadToilet = new Thread(new ParameterizedThreadStart(AttendShow!));
+            threadToilet.Start(randNumber);
+
+            numbersCopy.RemoveAt(pickIndex);
+        }
+    }
+
+    /// <summary>
+    /// Представление. Да кто-то не успел выйти из туалета и остался там...
+    /// </summary>
+    static void TheaterShow()
+    {
+        Console.WriteLine("Представление началось");
+
+        Thread.Sleep(20000);
+
+        Console.WriteLine("Представление закончилось");
+
+        Environment.Exit(0);
+    }
+
+    /// <summary>
+    /// Перегрузка метода для того чтобы работало ParameterizedThreadStart.
+    /// </summary>
+    public static void AttendShow(object id) => AttendShow(new Viewer((int)id));
+
+    /// <summary>
+    /// Некоторые зрители хотят в туалет. Заходят и выходят.
+    /// </summary>
+    public static void AttendShow(Viewer viewer)
+    {
+        viewer.WantToilet();
+        int timeInBathroom = random.Next(1, 4);
+
+        viewer.WaitToilet();
+        semaphore.WaitOne();
+        semaphore.WaitOne();
+
+        viewer.ComeToilet();
+        semaphore.Release();
+        Thread.Sleep(timeInBathroom * 1000);
+
+        viewer.ExitToilet();
+        semaphore.Release();
+    }
+}
