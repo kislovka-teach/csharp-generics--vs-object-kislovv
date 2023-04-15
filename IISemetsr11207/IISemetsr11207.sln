@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serialization.Decorator.Ada
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Threads.Tasks.PLINQ.Parallel", "Threads.Tasks.PLINQ.Parallel\Threads.Tasks.PLINQ.Parallel.csproj", "{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheaterTask", "TheaterTask\TheaterTask.csproj", "{FB7A9F6B-97D8-456A-8C07-C9FCF5D3B9E1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19CA4A4E-B02B-4A24-B4E8-64A66036FB14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB7A9F6B-97D8-456A-8C07-C9FCF5D3B9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7A9F6B-97D8-456A-8C07-C9FCF5D3B9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7A9F6B-97D8-456A-8C07-C9FCF5D3B9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7A9F6B-97D8-456A-8C07-C9FCF5D3B9E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
