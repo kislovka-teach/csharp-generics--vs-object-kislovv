@@ -2,7 +2,7 @@
 
 public class TypeOfScoreComparator : IComparer<Game>
 {
-    private TypeOfScore _typeOfScore;
+    private readonly TypeOfScore _typeOfScore;
 
     public TypeOfScoreComparator(TypeOfScore typeOfScore)
     {

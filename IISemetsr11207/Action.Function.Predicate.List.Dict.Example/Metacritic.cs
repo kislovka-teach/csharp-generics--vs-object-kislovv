@@ -4,7 +4,7 @@ namespace Action.Function.Predicate.List.Dict.Example;
 
 public class Metacritic
 {
-    private List<Game> _games = new();
+    private readonly List<Game> _games = new();
 
     public List<Game> Games => _games;
 
