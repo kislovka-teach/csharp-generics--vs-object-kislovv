@@ -1,4 +1,5 @@
-﻿using Action.Function.Predicate.List.Dict.Example;
+﻿using System.Reflection;
+using Action.Function.Predicate.List.Dict.Example;
 
 var games = new List<Game>() 
 { 
@@ -112,9 +113,30 @@ var games = new List<Game>()
         }
     }
 };
-games.Sort(new GameComparer());
+
 
 foreach (var game in games)
 {
     Console.WriteLine(game.Name);
+}
+
+
+
+var typeOfMetacritic = typeof(Metacritic);
+var metacritic = Activator.CreateInstance(typeOfMetacritic);
+
+var methods = typeOfMetacritic.GetMethods(BindingFlags.Instance | BindingFlags.NonPublic);
+var method = methods.FirstOrDefault(m =>  m.Name == "GetSortedGames");
+method.Invoke(metacritic, new object[] { games });
+Console.ReadLine();
+
+foreach (var game in games)
+{
+    Console.WriteLine(
+        $@"""{game.Name} Критерии оценок: 
+                        {string.Join(" ,", 
+                            game.Score.Keys.Select(
+                                x => 
+                                    x.GetEnumDescription<DescriptionAttribute>().Name))
+                        } """);
 }

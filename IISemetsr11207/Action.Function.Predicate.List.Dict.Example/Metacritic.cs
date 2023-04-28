@@ -19,7 +19,7 @@ public class Metacritic
         // groups.Values.ToList().ForEach(x => x.Sort(new GameComparer()));
         foreach (var gamesByGenre in groups.Values)
         {
-            gamesByGenre.Sort(new GameComparer());
+            GetSortedGames(gamesByGenre);
         }
         
         return groups;
@@ -48,5 +48,10 @@ public class Metacritic
     public IEnumerable<Game> GetAllGamesWhenFirstAndLastCharEquals()
     {
         return _games.Where(x => x.Name[0] == x.Name[^1]);
+    }
+
+    private void GetSortedGames(List<Game> games)
+    {
+        games.Sort(new GameComparer());
     }
 }
