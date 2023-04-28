@@ -4,16 +4,19 @@ public class GameComparer : IComparer<Game>
 {
     public int Compare(Game x, Game y)
     {
-        decimal avgFirstGame = default;
-        decimal avgSecondGame = default;
-        foreach (var score in x.Score.Values)
+        switch (x)
         {
-            avgFirstGame += score;
-        } 
-        foreach (var score in y.Score.Values)
-        {
-            avgSecondGame+= score;
+            case null when y == null:
+                return 0;
+            case null:
+                return -1;
         }
+
+        if (y == null)
+            return 1;
+       
+        var avgFirstGame = x.Score.Values.Sum();
+        var avgSecondGame = y.Score.Values.Sum();
         return avgFirstGame == avgSecondGame
             ? 0 
             : avgFirstGame > avgSecondGame 

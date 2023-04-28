@@ -2,7 +2,8 @@
 using Microsoft.VisualBasic;
 using Threads.Tasks.PLINQ.Parallel;
 
-var n = 10000;
+#region Задача про садовника
+/*var n = 10000;
 var m = 10000;
 var zemla = new int[n,m];
 var plan = new int[n,m];
@@ -81,3 +82,11 @@ ThreadPoolExample.Solve(array, 7);
 //Console.WriteLine(string.Join(" ", array));
 while (array[^1] == end) ;
 Console.WriteLine($"{array[0]}, {array[1]}..{array[array.Length / 2]}..{array[^2]}, {array[^1]}");
+*/
+
+
+#endregion
+
+var primesearcher = new PrimeSearcher();
+var result = primesearcher.FindPrimeNumbers(100000000);
+Console.WriteLine(result);
