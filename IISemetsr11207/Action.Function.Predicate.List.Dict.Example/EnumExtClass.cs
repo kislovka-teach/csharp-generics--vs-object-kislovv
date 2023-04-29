@@ -2,7 +2,7 @@
 
 public static class EnumExtClass
 {
-    public static T GetEnumDescription<T>(this Enum enumData)
+    public static T GetEnumDescription<T>(this Enum enumData) where T : Attribute
     {
         var type = enumData.GetType();
         var memInfo = type.GetMember(enumData.ToString());

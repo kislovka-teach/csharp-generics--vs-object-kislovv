@@ -8,7 +8,7 @@ public class Process
     {
         foreach (var game in games)
         {
-            Logger.Log($"any log aboutr {game.Name}", LoggingType.Console | LoggingType.File);
+            Logger.Log($"any log about {game.Name}", LoggingType.Console | LoggingType.File);
         }
     }
 }

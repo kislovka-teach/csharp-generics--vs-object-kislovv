@@ -2,6 +2,16 @@
 
 public abstract class Duck
 {
-    public abstract void Quack();
-    public abstract void Fly();
+    public IFlyBehavior? FlyBehavior { get; set; }
+    public IQuackBehavior? QuackBehavior { get; set; }
+
+    public void Quack()
+    {
+        QuackBehavior?.Quack();
+    }
+
+    public void Fly()
+    {
+        FlyBehavior?.Fly();
+    }
 }

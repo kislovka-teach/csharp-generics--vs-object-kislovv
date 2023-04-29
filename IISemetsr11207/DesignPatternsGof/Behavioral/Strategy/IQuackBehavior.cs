@@ -1,6 +1,6 @@
 ﻿namespace DesignPatternsGof.Behavioral.Strategy;
 
-public class RubberDuck : Duck
+public interface IQuackBehavior
 {
-    
+    void Quack();
 }
