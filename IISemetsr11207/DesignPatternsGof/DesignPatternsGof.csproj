@@ -11,4 +11,9 @@
       <ProjectReference Include="..\Action.Function.Predicate.List.Dict.Example\Action.Function.Predicate.List.Dict.Example.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Behavioral\Mediator\" />
+      <Folder Include="Behavioral\State\" />
+    </ItemGroup>
+
 </Project>
