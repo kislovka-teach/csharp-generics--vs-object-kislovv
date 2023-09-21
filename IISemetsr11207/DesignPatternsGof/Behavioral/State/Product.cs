@@ -2,9 +2,9 @@
 
 public class Product
 {
-    public Product(IProductState state)
+    public Product()
     {
-        State = state;
+        State = new GetProductIdeaState();
     }
 
     public IProductState State { get; set; }

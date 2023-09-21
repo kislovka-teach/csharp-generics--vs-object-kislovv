@@ -5,12 +5,10 @@ public class TestProductState : IProductState
     public ProductStatus Status { get; set; }
     public void UpdateProduct(Product product)
     {
-        var tests = new Tests
-        {
-            IsSuccess = new Random().Next(0, 2) == 1
-        };
+        var tests = new Tests();
         product.Tests ??= tests;
-        
+        product.Tests.IsSuccess = new Random().Next(0, 2) == 1;
+
         if (product.Tests.IsSuccess || product.Tests.FailCount >= 5)
         {
             Console.WriteLine("Проект готов!");

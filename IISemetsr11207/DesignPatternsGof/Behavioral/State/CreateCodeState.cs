@@ -13,9 +13,8 @@ public class CreateCodeState : IProductState
         product.Code = new Code();
         product.State = new TestProductState
         {
-            Status = ProductStatus.Idea
+            Status = ProductStatus.Testing
         };
         Console.WriteLine("Код готов! Нужно протестировать!");
-        product.State.Status = ProductStatus.Testing;
     }
 }
